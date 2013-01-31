@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% layout('layout') -%>
+<div class="hero-unit">
+    <h1>欢迎来到 xiaoweibo</h1>
+    <p>xiaoweibo 是一个基于Node.js 的微博系统。</p>
+    <p>
+        <a href="/login" class="btn btn-primary btn-large">登录</a>
+        <a href="/reg" class="btn btn-large">立即注册</a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="span4">
+        <h2>标题</h2>
+        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+    </div>
+    <div class="span4">
+        <h2>标题</h2>
+        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+    </div>
+    <div class="span4">
+        <h2>标题</h2>
+        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+    </div>
+</div>

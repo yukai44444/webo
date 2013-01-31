@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "xiaoweibo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,6 +7,9 @@
   },
   "dependencies": {
     "express": "3.0.5",
-    "ejs": "*"
+    "ejs": "*",
+    "ejs-locals": "1.0.2",
+    "connect-mongo": ">= 0.1.7",
+    "mongodb": ">= 1.2.9"
   }
 }
