@@ -1,7 +1,7 @@
 var mongodb = require('./db');
 
 function User(user) {
-    this.name = username;
+    this.name = user.name;
     this.password = user.password;
 }
 module.exports = User;

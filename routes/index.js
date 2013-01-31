@@ -22,7 +22,7 @@ module.exports = function(app) {
     app.post('/reg', function(req, res) {
         //检验用户两次输入的口令是否一致
         if (req.body['password-repeat'] != req.body['password']) {
-            reg.flash('error', '两次输入的口令不一致');
+            req.flash('error', '两次输入的口令不一致');
             return res.redirect('/reg');
         }
 
