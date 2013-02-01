@@ -1,4 +1,5 @@
 <% layout('layout') -%>
+<% if (!user) { %>
 <div class="hero-unit">
     <h1>欢迎来到 xiaoweibo</h1>
     <p>xiaoweibo 是一个基于Node.js 的微博系统。</p>
@@ -7,18 +8,7 @@
         <a href="/reg" class="btn btn-large">立即注册</a>
     </p>
 </div>
-
-<div class="row">
-    <div class="span4">
-        <h2>标题</h2>
-        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-    </div>
-    <div class="span4">
-        <h2>标题</h2>
-        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-    </div>
-    <div class="span4">
-        <h2>标题</h2>
-        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-    </div>
-</div>
+<% } else { %>
+    <%- partial('say') %>
+<% } %>
+<%- partial('post') %>

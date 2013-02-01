@@ -16,7 +16,7 @@ User.prototype.save = function save(callback) {
         if (err) {
             return callback(err);
         }
-        //读取users合计
+        //读取users合集
         db.collection('users', function(err, collection) {
             if (err) {
                 mongodb.close();
