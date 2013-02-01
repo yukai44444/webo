@@ -4,7 +4,8 @@
  */
 
 var crypto = require('crypto'),
-User = require('../model/users.js');
+User = require('../model/users.js'),
+Post = require('../model/post.js');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
@@ -109,11 +110,11 @@ module.exports = function(app) {
                 return res.redirect('/');
             }
             req.flash('success', '发表成功');
-            res.redirect('/u' + currentUser.name);
+            res.redirect('/u/' + currentUser.name);
         });
     });
 
-    app.get('/u:user', function(req, res) {
+    app.get('/u/:user', function(req, res) {
         User.get(req.params.user, function(err, user) {
             if (!user) {
                 req.flash('error', '用户不存在');
@@ -132,7 +133,7 @@ module.exports = function(app) {
         });
     });
 
-    function check(req, res, next) {
+    function checkLogin(req, res, next) {
         if (!req.session.user) {
             req.flash('error', '未登入');
             return res.redirect('/login');
