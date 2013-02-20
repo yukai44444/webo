@@ -18,7 +18,12 @@ app.engine('ejs', engine);
 var MongoStore = require('connect-mongo')(express),
 settings = require('./settings');
 
+var fs = require('fs');
+var accessLogfile = fs.createWriteStream('access.log', {flag: 'a'});
+var errorLogfile = fs.createWriteStream('error.log', {flag: 'a'});
+
 app.configure(function() {
+    app.use(express.logger({stream: accessLogfile}));
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
@@ -58,6 +63,14 @@ app.configure(function() {
 
 app.configure('development', function() {
     app.use(express.errorHandler());
+});
+
+app.configure('production', function() {
+    app.error(function(err, req, res, next) {
+        var meta = '[' + new Date() + ']' + req.url + '\n';
+        errorLogfile.write(meta + err.stack + '\n');
+        next();
+    });
 });
 
 http.createServer(app).listen(app.get('port'), function() {
