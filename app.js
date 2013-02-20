@@ -18,7 +18,11 @@ app.engine('ejs', engine);
 var MongoStore = require('connect-mongo')(express),
 settings = require('./settings');
 
+var fs = require('fs');
+var accessLogfile = fs.createWriteStream('access.log', {flag: 'a'});
+
 app.configure(function() {
+    app.use(express.logger({stream: accessLogfile}));
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');

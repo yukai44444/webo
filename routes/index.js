@@ -5,10 +5,15 @@
 
 var crypto = require('crypto'),
 User = require('../model/users.js'),
-Post = require('../model/post.js');
+Post = require('../model/post.js'),
+logger = require('nlogger').logger(module),
+logging = require('colorful').logging;
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
+        logger.info('a');
+        logging.start('b');
+        logging.end('c');
         Post.get(null, function(err, posts) {
             if (err) {
                 posts = [];

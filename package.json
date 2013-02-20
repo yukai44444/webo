@@ -11,6 +11,8 @@
     "ejs-locals": "1.0.2",
     "connect-mongo": ">= 0.1.7",
     "mongodb": ">= 1.2.9",
-    "connect-flash": "0.1.0"
+    "connect-flash": "0.1.0",
+    "nlogger": "*",
+    "colorful": "*"
   }
 }
